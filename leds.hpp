@@ -4,6 +4,8 @@
 #include <iostream>
 #include<fstream>
 
+
+
 class LED
 {
 
@@ -13,11 +15,14 @@ public:
     void close();
     void setBrightness(int);
     int getBrightness();
+
     LED(std::string path = "");
 
 private:
     std::string led_path;
     std::fstream fs_brightness;
 };
+
+
 
 #endif
