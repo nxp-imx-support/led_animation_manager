@@ -1,7 +1,7 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
-#define QUEUE_NAME  "/avs_events_queue"
+#define QUEUE_NAME  "/avs_states_queue"
 #define MAX_SIZE    16
 #define MSG_STOP    "exit"
 
