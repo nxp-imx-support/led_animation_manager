@@ -110,6 +110,8 @@ int main()
         /*Receive Bytes from Message Queue*/        
         bytes_read = mq_receive(msq, new_state_buffer, MAX_SIZE, NULL);
 
+        new_state_buffer[bytes_read] = '\0';
+
         /*If received message is different from previous*/ 
         if(strncmp(new_state_buffer, current_state_buffer, MAX_SIZE) != 0)
         {
