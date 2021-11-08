@@ -9,25 +9,15 @@ source /opt/fsl-imx-xwayland/5.10-hardknott/environment-setup-cortexa53-crypto-p
 
 
 ```
-cd led_daemon
 mkdir build
 cd build
 cmake ../
 make
 
 ```
+Outputs are in build/led_daemon and build/sendAlexaMsgQ
 
-Output is build/led_daemon
 
-Also compile the sendAlexaMsgQ
 
-```
-cd led_daemon/sendAlexaMsqQ
-mkdir build
-cd build
-cmake ../
-make
-
-```
 
 
