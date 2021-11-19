@@ -1,37 +1,32 @@
+/*
+ * Copyright 2021 NXP
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+*/
 #include "ledstrip.hpp"
 
-LEDSTRIP::LEDSTRIP()
-{
+LEDSTRIP::LEDSTRIP(){}
 
-}
-
-LEDSTRIP::LEDSTRIP(const char * confpath)
-{
+LEDSTRIP::LEDSTRIP(const char * confpath){
     confFile.open(confpath);
     std::string mstring;
     
-    while (getline(confFile,mstring))
-    {
+    while (getline(confFile,mstring)){
         push_back(LED(mstring)); 
     }
 }
 
-void LEDSTRIP::setBrightnessLED(int led, int value ) 
-{
+void LEDSTRIP::setBrightnessLED(int led, int value){
     iterator it = begin();
     it[led].setBrightness(value);
 }
 
-
-void LEDSTRIP::setBrightness(int value )
-{
+void LEDSTRIP::setBrightness(int value){
     for(iterator it = begin(); it != end(); it++)
     it->setBrightness(value);
-
 }
 
-void LEDSTRIP::open(int led, std::string path)
-{
+void LEDSTRIP::open(int led, std::string path){
     iterator it = begin();
     it[led].open(path);
 }

@@ -3,4 +3,3 @@ project (sendAlexaMsgQ)
 add_executable(sendAlexaMsgQ sendAlexaMsgQ.c)
 target_link_libraries(sendAlexaMsgQ rt)
 install (TARGETS sendAlexaMsgQ DESTINATION bin)
-

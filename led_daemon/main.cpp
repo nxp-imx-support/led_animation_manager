@@ -1,3 +1,9 @@
+/*
+ * Copyright 2021 NXP
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+*/
+
 #include <iostream>
 #include <vector>
 #include <map>
@@ -9,52 +15,41 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <errno.h>
+
 #include "leds.hpp"
 #include "ledstrip.hpp"
 #include "animation.hpp"
-
 #include "common.h"
 
-
-typedef struct 
-{
+typedef struct{
     ANIMATION * ptrAnimation;
     LEDSTRIP * ptrMyLEDS;
     pthread_mutex_t * mtx;
 }pshared_data_t;
  
-void *runAnimation(void *arg)
-{
+void *runAnimation(void *arg){
     pshared_data_t * mData  = (pshared_data_t *)arg;
     ANIMATION * lptrAnimation = mData->ptrAnimation;
 
     int time;  
-    while(true)
-    {
-
-        for(int state = 0; state < mData->ptrAnimation->getSizeStates() ; state++)
-        {
+    while(true){
+        for(int state = 0; state < mData->ptrAnimation->getSizeStates() ; state++){
             pthread_mutex_lock(mData->mtx);
             mData->ptrAnimation->setState(*mData->ptrMyLEDS,state);
             time = mData->ptrAnimation->getTime(state)* 1000;
             pthread_mutex_unlock(mData->mtx);
             usleep(time);
 
-            if(lptrAnimation != mData->ptrAnimation) 
-            {
+            if(lptrAnimation != mData->ptrAnimation){
                 lptrAnimation = mData->ptrAnimation;
                 break;
             }
         }
-
     }
     return NULL;
 }
 
-int main()
-{
-
-
+int main(){
     mqd_t msq;
     struct mq_attr attr;
     char new_state_buffer[MAX_SIZE] = {0};
@@ -78,8 +73,7 @@ int main()
     AnimationFile.open("Animations.conf");
     std::string  lastanimationfile, animationfiles;
 
-    while(getline(AnimationFile,animationfiles))
-    {
+    while(getline(AnimationFile,animationfiles)){
         listAnimation.insert(listAnimation_t::value_type(animationfiles , new ANIMATION(animationfiles.c_str())));
         lastanimationfile = animationfiles;
     }
@@ -105,16 +99,14 @@ int main()
     /*String to save Message and access Animation*/
     std::string mystring; 
 
-    while(true)
-    {
+    while(true){
         /*Receive Bytes from Message Queue*/        
         bytes_read = mq_receive(msq, new_state_buffer, MAX_SIZE, NULL);
 
         new_state_buffer[bytes_read] = '\0';
 
         /*If received message is different from previous*/ 
-        if(strncmp(new_state_buffer, current_state_buffer, MAX_SIZE) != 0)
-        {
+        if(strncmp(new_state_buffer, current_state_buffer, MAX_SIZE) != 0){
             /*Get animation*/
             mystring = new_state_buffer;                       
             animationhandler = listAnimation[new_state_buffer];
@@ -127,8 +119,7 @@ int main()
         }
     }
         
-        mq_close(msq); 
-        mq_unlink(QUEUE_NAME);
-    
+    mq_close(msq); 
+    mq_unlink(QUEUE_NAME);
     return 0;
 }
