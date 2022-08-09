@@ -1,7 +1,6 @@
 /*
- * Copyright 2021 NXP
- * All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
+ * Copyright 2022 NXP 
 */
 
 #include <iostream>
@@ -60,7 +59,7 @@ int main(){
     pthread_mutex_t mxq;
     ANIMATION * animationhandler;
 
-    std::cout << "LED Daemon Started" << std::endl;
+    std::cout << "Led_Animation_Manager Started" << std::endl;
 
     /*Create LED array from config file*/
     LEDSTRIP myLEDS("leds.conf");
@@ -70,7 +69,7 @@ int main(){
     listAnimation_t listAnimation;
     
     std::fstream AnimationFile;
-    AnimationFile.open("Animations.conf");
+    AnimationFile.open("animations.conf");
     std::string  lastanimationfile, animationfiles;
 
     while(getline(AnimationFile,animationfiles)){

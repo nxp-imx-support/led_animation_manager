@@ -1,0 +1,32 @@
+
+NXP Software Content Register
+
+Release - Led_Animation_Manager_1.0
+
+Outgoing License: BSD-3-Clause 
+License File: LICENSE
+
+Release tag: Led_Animation_Manager_1.0
+--------------------------------------------
+
+Package:                     Led_Animation_Manager
+Version:                     1.0
+Outgoing License:            BSD-3-Clause 
+License File:                LICENSE
+Package Category:            Multimedia
+Type of Content:             source
+Description and comments:    LED Manager for handle LEDs strip on 8MIC-RPI board
+Release Location:            ./Led_Animation_Manager
+Origin:                      NXP (BSD-3-Clause)
+--------------------------------------------
+
+Package:                     sendMsgQ
+Version:                     1.0
+Outgoing License:            BSD-3-Clause 
+License File:                LICENSE
+Package Category:            Multimedia
+Type of Content:             source
+Description and comments:    Software test tool for handle message transaction
+Release Location:            ./sendMsgQ
+Origin:                      NXP (BSD-3-Clause)
+--------------------------------------------

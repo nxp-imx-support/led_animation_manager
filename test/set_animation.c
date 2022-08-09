@@ -1,7 +1,6 @@
 /*
- * Copyright 2021 NXP
- * All rights reserved.
  * SPDX-License-Identifier: BSD-3-Clause
+ * Copyright 2022 NXP 
 */
 
 #include <stdlib.h>
@@ -11,7 +10,7 @@
 #include <sys/types.h>
 #include <mqueue.h>
 
-#define QUEUE_NAME "/avs_states_queue"
+#define QUEUE_NAME "/led_animations_queue"
 #define MAX_SIZE 1024
 #define MSG_STOP "exit"
 
@@ -32,7 +31,7 @@ int main(int argc, char **argv){
 	mq = mq_open(QUEUE_NAME, O_WRONLY);
 	CHECK((mqd_t)-1 != mq);
 
-	printf("Sending %s %d\n", argv[1], strlen(argv[1]));
+	printf("Sending %s %ld\n", argv[1], strlen(argv[1]));
 	memcpy(buffer, argv[1], strlen(argv[1]));
 
 	/* send the message */
