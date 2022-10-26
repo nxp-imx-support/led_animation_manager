@@ -20,13 +20,13 @@ Release Location:            ./Led_Animation_Manager
 Origin:                      NXP (BSD-3-Clause)
 --------------------------------------------
 
-Package:                     sendMsgQ
+Package:                     set_animation
 Version:                     1.0
 Outgoing License:            BSD-3-Clause 
 License File:                LICENSE
 Package Category:            Multimedia
 Type of Content:             source
 Description and comments:    Software test tool for handle message transaction
-Release Location:            ./sendMsgQ
+Release Location:            ./test
 Origin:                      NXP (BSD-3-Clause)
 --------------------------------------------
