@@ -1,32 +1,29 @@
 
 NXP Software Content Register
 
-Release - Led_Animation_Manager_1.0
+Release:                    Led Animation Manager
+Version:                    1.0
+Date:                       October 2022
+Outgoing License:           BSD-3-Clause 
+License File:               LICENSE
+Release branch:             master
 
-Outgoing License: BSD-3-Clause 
-License File: LICENSE
-
-Release tag: Led_Animation_Manager_1.0
 --------------------------------------------
 
-Package:                     Led_Animation_Manager
-Version:                     1.0
-Outgoing License:            BSD-3-Clause 
-License File:                LICENSE
-Package Category:            Multimedia
-Type of Content:             source
-Description and comments:    LED Manager for handle LEDs strip on 8MIC-RPI board
-Release Location:            ./Led_Animation_Manager
-Origin:                      NXP (BSD-3-Clause)
---------------------------------------------
+Package:                    led_animation_manager
+Outgoing License:           BSD-3-Clause 
+License File:               LICENSE
+Type of Content:            Source code
+Description and comments:   LED Manager to handle LEDs strip on 8MIC-RPI board
+Release Location:           https://github.com/nxp-imx-support/led_animation_manager
+Origin:                     NXP (BSD-3-Clause)
 
-Package:                     set_animation
-Version:                     1.0
-Outgoing License:            BSD-3-Clause 
-License File:                LICENSE
-Package Category:            Multimedia
-Type of Content:             source
-Description and comments:    Software test tool for handle message transaction
-Release Location:            ./test
-Origin:                      NXP (BSD-3-Clause)
+Component:                  set_animation
+Outgoing License:           BSD-3-Clause 
+License File:               LICENSE
+Type of Content:            Source code
+Description and comments:   Software test tool to handle message transaction
+Release Location:           ./test
+Origin:                     NXP (BSD-3-Clause)
+
 --------------------------------------------
