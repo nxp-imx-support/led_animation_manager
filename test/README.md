@@ -5,10 +5,12 @@ led_animation_manager.
 
 ## Valid messages
 
-- RENDER
 - IDLE
+- START
+- RENDER
 - LISTENING
 - SPEAKING
+- THINKING
 
 ## Examples of usage
 
